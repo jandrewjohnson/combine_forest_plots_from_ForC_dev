@@ -1,7 +1,4 @@
-import os
-
 import pandas as pd
-import hazelbean as hb
 
 measurements_path = 'ForC_measurements.csv'
 sites_path = 'ForC_sites.csv'
@@ -82,17 +79,4 @@ mean_forest_carbon_plots_by_lat_long = forest_carbon_plots_by_lat_long[['sites.s
 # Merge the grouped data back to the original so that it has lat lon still
 a = len(mean_forest_carbon_plots_by_lat_long)
 b = len(forest_carbon_plots_by_lat_long)
-# mean_forest_carbon_plots_by_lat_long = pd.merge(mean_forest_carbon_plots_by_lat_long, forest_carbon_plots_by_lat_long[[i for i in final_cols if i not in ['stand.age', 'mean']]], on='sites.sitename', how='inner')
 mean_forest_carbon_plots_by_lat_long.to_csv('mean_forest_carbon_plots_by_lat_long.csv', index=False)
-
-
-# # Count how many times each variable is used in the 'variable.name' column
-# var_name_counts = forest_carbon_plots_by_lat_long['variable.name'].value_counts()
-# print('var_name_counts', var_name_counts.to_string())
-
-# unique_variables = forest_carbon_plots_by_lat_long['variable.name'].unique()
-# print('unique_variables', unique_variables)
-
-# forest_carbon_plots_by_lat_long.to_csv('forest_carbon_plots_by_lat_long.csv', index=False)
-
-
